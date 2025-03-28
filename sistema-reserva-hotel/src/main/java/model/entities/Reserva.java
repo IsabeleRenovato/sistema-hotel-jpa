@@ -12,9 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import model.entities.utils.Status;
+
 @Entity
 public class Reserva {
-	
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -43,12 +46,14 @@ public class Reserva {
 		
 	}
 
-	public Reserva(LocalDate checkIn, LocalDate checkOut, double valorTotal, Status statusReserva) {
-	
+	public Reserva(LocalDate checkIn, LocalDate checkOut, double valorTotal, Status statusReserva, List<Hospede> hospede, List<Quarto> quarto) {
+		
 		this.checkIn = checkIn;
 		this.checkOut = checkOut;
 		this.valorTotal = valorTotal;
 		this.statusReserva = statusReserva;
+		this.hospede = hospede;
+	    this.quarto = quarto;
 	}
 
 	public Long getId() {
@@ -96,6 +101,3 @@ public class Reserva {
 
 
 
-enum Status {
-    ATIVA, CANCELADA, FINALIZADA
-}

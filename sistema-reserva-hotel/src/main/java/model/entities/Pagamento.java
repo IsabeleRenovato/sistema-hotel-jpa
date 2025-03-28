@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import model.entities.utils.TipoPagamento;
+
 @Entity
 public class Pagamento {
 	
@@ -66,6 +68,4 @@ public class Pagamento {
 }
 
 
-enum TipoPagamento {
-    CARTAO, DINHEIRO, PIX
-}
+
